@@ -70,16 +70,25 @@ preds = np.argmax(preds, axis=-1)
 import matplotlib.pyplot as plt
 
 for i in range(len(X_test)):
-    plt.figure(figsize=(12, 4))
+    # Plot result
+    # print(f"Image name: {image_files[i]}")
+    # plt.figure(figsize=(12, 4))
 
-    plt.subplot(1, 2, 1)
-    plt.imshow(X_test[i])
-    plt.title('Original image')
-    plt.axis('off')
+    # plt.subplot(1, 2, 1)
+    # plt.imshow(X_test[i])
+    # plt.title('Original image')
+    # plt.axis('off')
 
-    plt.subplot(1, 2, 2)
-    plt.imshow(preds[i], cmap='gray')
-    plt.title('Predict mask')
-    plt.axis('off')
+    # plt.subplot(1, 2, 2)
+    # plt.imshow(preds[i], cmap='gray')
+    # plt.title('Predict mask')
+    # plt.axis('off')
 
-    plt.show()
+    # plt.show()
+    
+    # Save result
+    original_name = os.path.basename(image_files[i])
+    name, ext = os.path.splitext(original_name)
+    result_name = f"{name}_result{ext}"
+    result_path = os.path.join(images_path, result_name)
+    plt.imsave(result_path, preds[i], cmap='gray')
