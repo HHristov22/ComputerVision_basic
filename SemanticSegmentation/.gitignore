@@ -1,0 +1,11 @@
+# data
+.data
+data/
+
+# Environments
+.venv
+venv/
+
+# Ignore Python cache directories
+__pycache__/
+scripts/__pycache__/
